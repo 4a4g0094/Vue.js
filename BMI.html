@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id = "app">
+    身高:<input type="text" v-model = "height">
+    體重:<input type="text" v-model = "weight">
+    {{bmi}}
+    
+
+
+
+</div>
+
+</body>
+<script>
+   var app = new Vue({
+    el:'#app',
+    data:{
+        height:0,
+        weight:0,  
+    },
+    computed:{
+        bmi:function(){
+            var w = this.weight
+            var h = this.height/100*this.height/100
+           var bmi = w/h
+            return  bmi ||0;//初始顯示為 0
+        }
+    }
+   }) 
+</script>
+</html>
+

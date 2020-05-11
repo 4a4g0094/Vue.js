@@ -17,11 +17,9 @@
 <body>
  <div id ="app">
     {{message}}
-   <H1>A <left><input type = "text" v-model = "score"></left> </H1>
-   <H1>B<right><input type = "text" v-model = "score1"></right> </H1>
-    <div v-if = "score>score1">A大</div>  
-    <div v-else-if ="score<score1" >B大</div> 
-    <div v-else>相等</div> 
+   <H1>A <left><input type = "number" v-model = "score"></left> </H1>
+   <H1>B<right><input type = "number" v-model = "score1"></right> </H1>
+  {{big}}
  </div>
 </body>
  <script>
@@ -31,7 +29,20 @@
             message:'比大小',
             score:0,
             score1:0,
-         }
+         },
+         computed:{
+        big:function(){
+            if (this.score>this.score1){
+                return 'A大'
+            }
+            else if (this.score1>this.score){
+                return 'B大'
+            }
+            else{
+                return '一樣大'
+            }
+    }
+    }
      });
  </script> 
 </html>
